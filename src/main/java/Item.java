@@ -22,7 +22,8 @@ public class Item {
     }
 
     public Item(String url) throws Exception {
-        Comments = new CommentsScrapper(url).getComments();
+        PageId = url.split("/")[4];
+        Comments = new CommentsScrapper(url+"comments/").getComments();
 
     }
 

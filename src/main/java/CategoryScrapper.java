@@ -7,6 +7,7 @@ public class CategoryScrapper extends Scrapper {
 
     public CategoryScrapper(String url) throws Exception {
         super(url, ".paginator-catalog-l-link");
+        ;
         ScrapCategory();
     }
 

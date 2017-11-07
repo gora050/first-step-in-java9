@@ -9,11 +9,12 @@ import java.util.concurrent.TimeUnit;
 
 public class Scrapper {
     protected String url;
-    protected Document Doc;
-    protected Elements Result;
+    public Document Doc;
+    public Elements Result;
 
     public Scrapper(String url) throws Exception {
         this.url = url;
+        System.out.println(url);
         Doc = Jsoup.connect(url).timeout(0).get();
     }
 

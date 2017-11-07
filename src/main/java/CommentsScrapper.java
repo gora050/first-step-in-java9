@@ -13,6 +13,7 @@ public class CommentsScrapper extends Scrapper {
 
     public CommentsScrapper(String url) throws Exception {
         super(url, ".paginator-catalog-l-link");
+
         Integer pages = 0;
 
         try {
@@ -21,10 +22,9 @@ public class CommentsScrapper extends Scrapper {
         }
 
         for (Integer k = 1; k <= pages; k++) {
-
-            Scrapper commentPage = new Scrapper(url + "comments/page=" + k.toString() + "/", ".pp-review-inner");
+            Scrapper commentPage = new Scrapper(url + "page=" + k.toString() + "/", ".pp-review-inner");
             for (Element comment : commentPage.Result) {
-                Comments.add(new Comment(comment.select(".sprite.g-rating-stars-i").attr("content") + ",\"" + comment.select(".pp-review-text-i:first-child").text().replaceAll("\"", "&quot;") + "\""));
+                Comments.add(new Comment(comment.select(".sprite.g-rating-stars-i").attr("content"), comment.select(".pp-review-text-i:first-child").text().replaceAll("\"", "&quot;")));
             }
         }
     }
