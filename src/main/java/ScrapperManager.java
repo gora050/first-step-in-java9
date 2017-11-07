@@ -10,7 +10,7 @@ public class ScrapperManager {
             for (Item Product : Page) {
                 PrintWriter writer = new PrintWriter(dirPath + "/"+Product.getPageId()+".csv", "UTF-8");
                 for (Comment ProductComment : Product.getComments()) {
-                   writer.println(ProductComment.getRate() + ",\"" + ProductComment.getText() + "\"");
+                   writer.println(ProductComment.getRate().toString() + ",\"" + ProductComment.getText() + "\"");
                 }
                 writer.close();
             }

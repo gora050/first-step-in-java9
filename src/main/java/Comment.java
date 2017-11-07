@@ -12,7 +12,7 @@ public class Comment {
 
     public Comment(String rate, String data) {
         this.Text = data;
-        this.Rate = Integer.parseInt(rate);
+        this.Rate = Integer.parseInt(rate.length() == 0 ? "0" : rate);
 
     }
 }
